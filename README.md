@@ -17,7 +17,7 @@ Most of the the choices are fairly straight-forward.
 
 5. After setup has completed, reboot to autologin into graphical environment
 
-6. Press Ctrl-Alt-T to open a terminal window.  Then install git:
+6. Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> to open a terminal window.  Then install git:
 ```
 sudo apt install -y git
 ```
