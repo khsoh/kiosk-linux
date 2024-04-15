@@ -4,6 +4,10 @@ SCRIPTNAME=$(readlink -f ${BASH_SOURCE[0]})
 pushd "$(dirname $SCRIPTNAME)" > /dev/null
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+if [[ ! -d "$XDG_CONFIG_HOME/autostart" ]]; then
+    mkdir "$XDG_CONFIG_HOME/autostart"
+fi
 read -p "Kiosk URL: " KIOSKURL
 
 cat << __startup_kiosk > $XDG_CONFIG_HOME/autostart/startup_kiosk.sh
