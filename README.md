@@ -32,7 +32,7 @@ git clone https://github.com/khsoh/kiosk-linux.git kiosk
 cd kiosk
 ```
 
-9. Source the bootstrap.sh script to perform installation of more tools:
+9. Source the bootstrap.sh script to install more tools:
 ```
 source bootstrap.sh
 ```
