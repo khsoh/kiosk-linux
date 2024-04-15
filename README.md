@@ -2,7 +2,7 @@
 Kiosk setup for Linux.
 
 The `main` branch supports the setting up of a kiosk for [Xubuntu](https://xubuntu.org) distribution.
-The `wattos` branch supports the setting up of a kiosk for [wattOS](https://www.planetwatt.com) distribution.
+The `distro/wattos` branch supports the setting up of a kiosk for [wattOS](https://www.planetwatt.com) distribution.
 
 ## Setup
 1. Download the [Xubuntu ISO](https://xubuntu.org/download) image
