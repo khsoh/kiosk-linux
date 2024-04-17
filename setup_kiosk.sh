@@ -14,8 +14,9 @@ cat << __kiosk_desktop > $XDG_CONFIG_HOME/autostart/kiosk.desktop
 [Desktop Entry]
 Type=Application
 Name=Kiosk
-Exec=/usr/bin/firefox --kiosk $KIOSKURL
+Exec=/snap/bin/firefox --kiosk $KIOSKURL
 __kiosk_desktop
+chmod +x $XDG_CONFIG_HOME/autostart/kiosk.desktop
 
 # Make a desktop shortcut for the script
 if [[ ! -d "$HOME/Desktop" ]]; then
@@ -35,7 +36,7 @@ echo ""
 echo "Will be starting firefox automatically first to perform account login to kiosk"
 
 sleep 3
-/usr/bin/firefox --kiosk $KIOSKURL &
+/snap/bin/firefox --kiosk $KIOSKURL &
 
 popd > /dev/null
 
