@@ -9,7 +9,6 @@ git pull --recurse-submodules origin main
 sudo snap refresh
 
 sudo apt install -y stow
-sudo snap install chromium
 
 # Sets up the symlinks with stow
 stow -Rt ~ LINUX 

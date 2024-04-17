@@ -37,7 +37,7 @@ cd kiosk
 source bootstrap.sh
 ```
 
-10. Source the setup_kiosk.sh script to setup the startup environment to run chromium
+10. Source the setup_kiosk.sh script to setup the startup environment to run firefox
 ```
 source setup_kiosk.sh
 ```
