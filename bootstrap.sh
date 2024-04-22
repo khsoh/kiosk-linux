@@ -3,14 +3,11 @@
 SCRIPTNAME=$(readlink -f ${BASH_SOURCE[0]})
 pushd "$(dirname $SCRIPTNAME)" > /dev/null
 
-sudo apt install -y vim
-git pull --recurse-submodules origin main
+SDIR="$(source print_distro.sh)" || return $?
 
-sudo snap refresh
+pushd "$SDIR" >/dev/null
 
-sudo apt install -y stow
-
-# Sets up the symlinks with stow
-stow -Rt ~ LINUX 
+source bootstrap.sh
 
 popd >/dev/null
+
