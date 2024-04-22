@@ -11,3 +11,6 @@ source bootstrap.sh
 
 popd >/dev/null
 
+# Sets up the symlinks with stow
+stow -Rt ~ LINUX
+
