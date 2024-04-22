@@ -13,6 +13,6 @@ sudo apt autoremove
 sudo apt install -y stow
 
 # Sets up the symlinks with stow
-stow -Rt ~ LINUX 
+stow -Rt ~ ../LINUX 
 
 popd >/dev/null
