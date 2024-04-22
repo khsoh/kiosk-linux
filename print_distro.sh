@@ -4,11 +4,13 @@
 
 if [[ -d /etc/calamares/branding/wattOS ]]; then
     echo "wattos"
+elif [[ "$(lsb_release -s -i)" = "Ubuntu" ]]; then
+    echo "ubuntu"
 else
     echo "Unknown distribution.  Executing lsb_release -a"
     lsb_release -a
     echo "The kiosk project supports the following distributions:"
-    echo "  Xubuntu"
+    echo "  Ubuntu/Xubuntu/Lubuntu"
     echo "  wattOS"
     return 1
 fi

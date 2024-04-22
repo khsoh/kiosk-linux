@@ -1,11 +1,15 @@
 # kiosk-linux
 Kiosk setup for Linux.
 
-The `main` branch supports the setting up of a kiosk for [Xubuntu](https://xubuntu.org) distribution.
-The `distro/wattos` branch supports the setting up of a kiosk for [wattOS](https://www.planetwatt.com) distribution.
+This repository contains code to support the setting up of a Linux-based kiosk.  The
+following distributions are supported
+- [Xubuntu](https://xubuntu.org) - Version 22.04
+- [wattOS](https://www.planetwatt.com) - Version R13
 
 ## Setup
-1. Download the [Xubuntu ISO](https://xubuntu.org/download) image
+1. Download the ISO image:
+- [Xubuntu ISO](https://xubuntu.org/download)
+- [wattOS](https://www.planetwatt.com)
 
 2. Make a bootable USB stick.  If you are not sure how to do this, follow these 
 [instructions](https://help.ubuntu.com/community/Installation/FromUSBStick).
