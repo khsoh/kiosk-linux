@@ -3,18 +3,20 @@ Kiosk setup for Linux.
 
 This repository contains code to support the setting up of a Linux-based kiosk.  The
 following distributions are supported
-- [Xubuntu](https://xubuntu.org) - Version 22.04
+- [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
+- [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
 - [wattOS](https://www.planetwatt.com) - Version R13
 
 ## Setup
 1. Download the ISO image:
-- [Xubuntu ISO](https://xubuntu.org/download)
+- [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
+- [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
 - [wattOS](https://www.planetwatt.com)
 
 2. Make a bootable USB stick.  If you are not sure how to do this, follow these 
 [instructions](https://help.ubuntu.com/community/Installation/FromUSBStick).
 
-3. Plug in the USB stick into your mini-PC and boot from it to install Xubuntu.
+3. Plug in the USB stick into your mini-PC and boot from it to install the Linux distribution
 Most of the the choices are fairly straight-forward.
 
 4. During the setup should make user auto-login
