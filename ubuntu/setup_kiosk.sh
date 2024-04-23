@@ -25,6 +25,11 @@ if [[ ! -d "$HOME/Desktop" ]]; then
 fi
 ln -s $XDG_CONFIG_HOME/autostart/kiosk.desktop "$HOME/Desktop/kiosk.desktop"
 
+# Check that ibus is present in $HOME/.config
+if [[ ! -d "$HOME/.config/ibus" ]]; then
+    mkdir "$HOME/.config/ibus"
+fi
+
 echo ""
 echo ""
 echo "====================================="
