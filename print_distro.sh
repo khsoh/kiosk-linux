@@ -4,6 +4,8 @@
 
 if [[ -d /etc/calamares/branding/wattOS ]]; then
     echo "wattos"
+elif [[ -d /etc/calamares/branding/peppermint ]]; then
+    echo "peppermint"
 elif [[ "$(lsb_release -s -i)" = "Ubuntu" ]]; then
     echo "ubuntu"
 else
