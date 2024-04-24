@@ -2,13 +2,17 @@
 Kiosk setup for Linux.
 
 This repository contains code to support the setting up of a Linux-based kiosk.  The
-following distributions are supported
+following distributions are supported:
+
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
 - [wattOS](https://www.planetwatt.com) - Version R13
 
+Note that [Xubuntu](https://xubuntu.org) is probably the lightest Ubuntu flavour that you can use for
+a kiosk application.
+
 ## Setup
-1. Download the ISO image:
+1. Download **ONE** of the following ISO image:
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
 - [wattOS](https://www.planetwatt.com)
@@ -23,27 +27,36 @@ Most of the the choices are fairly straight-forward.
 
 5. After setup has completed, reboot to autologin into graphical environment
 
-6. Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> to open a terminal window.  Then install git:
+6. After booting up into the GUI desktop the first time, it is possible for some distributions
+(the more advanced Ubuntu flavours) that a GUI notification may pop up to show the
+updates that you should perform.  Execute those system updates first.
+
+NOTE: The wattOS and Xubuntu distributions as of 22.04 do **NOT** have such an automated GUI 
+notification tool present.
+
+
+7. Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> to open a terminal window.  Then install git:
 ```
 sudo apt install -y git
 ```
 
-7. Clone the kiosk setup repo:
+8. Clone the kiosk setup repo:
 ```
 git clone https://github.com/khsoh/kiosk-linux.git kiosk
 ```
 
-8. Change directory to the repo:
+9. Change directory to the repo:
 ```
 cd kiosk
 ```
 
-9. Source the bootstrap.sh script to install more tools:
+10. Source the bootstrap.sh script to install more tools:
 ```
 source bootstrap.sh
 ```
 
-10. Source the setup_kiosk.sh script to setup the startup environment to run firefox
+11. Source the setup_kiosk.sh script to setup the startup environment to run firefox
 ```
 source setup_kiosk.sh
 ```
+
