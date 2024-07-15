@@ -4,9 +4,9 @@ Kiosk setup for Linux.
 This repository contains code to support the setting up of a Linux-based kiosk.  The
 following distributions are supported:
 
+- (Recommended) [wattOS](https://www.planetwatt.com) - Version R13
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
-- [wattOS](https://www.planetwatt.com) - Version R13
 - [peppermintOS](https://peppermintos.com)
 
 Note that [Xubuntu](https://xubuntu.org) is probably the lightest Ubuntu flavour that you can use for
@@ -14,9 +14,9 @@ a kiosk application.
 
 ## Setup
 1. Download **ONE** of the following ISO image:
+- (Recommended) [wattOS](https://www.planetwatt.com)
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
-- [wattOS](https://www.planetwatt.com)
 - [peppermintOS](https://peppermintos.com)
 
 2. Make a bootable USB stick.  If you are not sure how to do this, follow these 
@@ -31,9 +31,8 @@ Most of the the choices are fairly straight-forward.
 
 6. After booting up into the GUI desktop the first time, it is possible for some distributions
 (the more advanced Ubuntu flavours) that a GUI notification may pop up to show the
-updates that you should perform.  Execute those system updates first.
-
-NOTE: The wattOS and Xubuntu distributions as of 22.04 do **NOT** have such an automated GUI 
+updates that you should perform.  Execute those system updates first.  
+**NOTE**: The wattOS and Xubuntu distributions as of 22.04 do **NOT** have such an automated GUI 
 notification tool present.
 
 
