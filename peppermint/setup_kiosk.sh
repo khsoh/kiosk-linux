@@ -16,7 +16,7 @@ cat << __kiosk_desktop > $XDG_CONFIG_HOME/autostart/kiosk.desktop
 Type=Application
 Name=Kiosk
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default128.png
-Exec=/usr/bin/firefox --kiosk $KIOSKURL
+Exec=/bin/sh -c "/usr/bin/nm-online --quiet --timeout=60 && /usr/bin/firefox --kiosk $KIOSKURL"
 __kiosk_desktop
 chmod +x $XDG_CONFIG_HOME/autostart/kiosk.desktop
 
