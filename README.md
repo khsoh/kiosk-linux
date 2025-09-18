@@ -42,9 +42,41 @@ notification tool present.
 sudo apt update -y
 ```
 
-9. It is possible that in some hardware, the display orientation during grub startup is rotated.  To fix this: 
-    * Open a terminal window
-    * Use vim to edit `/etc/default/grub` : `sudo vim /etc/default/grub`
+9. Open a terminal window and install git:
+```
+sudo apt install -y git
+```
+
+10. Clone the kiosk setup repo:
+```
+git clone https://github.com/khsoh/kiosk-linux.git kiosk
+```
+
+11. Change directory to the repo:
+```
+cd kiosk
+```
+
+12. Source the bootstrap.sh script to install more tools:
+```
+source bootstrap.sh
+```
+
+13. Source the setup_kiosk.sh script to setup the startup environment to run firefox
+```
+source setup_kiosk.sh
+```
+
+### Display and/or touchscreen orientation issues
+
+It is possible that the display may not be in the correct orientation for your hardware.  The following are instructions for fixing this issue in wattOS or Debian-based distributions:
+
+1. Open a terminal window.
+
+2. Check that `/usr/bin/xinput` is present.  If not, then execute: `sudo apt install -y xinput`. `xinput` is required to fix touchscreen orientation.
+
+3. Fix the grub startup display orientation:
+    * Use `vim` to edit `/etc/default/grub` : `sudo vim /etc/default/grub`
     * Locate the line that starts with `GRUB_CMDLINE_LINUX` or `GRUB_CMDLINE_LINUX_DEFAULT`
     * Append one of the following string to the existing string:
         - `fbcon=rotate:1`: 90 degrees clockwise orientation
@@ -53,44 +85,27 @@ sudo apt update -y
     * Execute the command: `sudo update-grub`.  
 <br/>
 
-10. If the LXDE environment for wattOS is rotated, do the following to fix the issue:
-    * Open a terminal window
+4. If the graphical LXDE environment for wattOS is rotated, do the following to fix the issue:
     * Run the following command to identify the display by viewing the list of connected displays:
         - `xrandr -q` 
         - Look for the line that says "connected" to find your display's name (e.g. `DSI-1`)
-    * Use vim to create a file `~/rotate.sh`
+    * Use `vim` to create a file `~/rotate.sh`
     * Add the following string to end of the file to rotate the screen to the desired orientation:
         - `xrandr --output <DISPLAY> --rotate [right|left|inverted]`
         - save the file
         - Execute: `chmod +x ~/rotate.sh`
-    * Use vim to edit the file `~/.config/lxsession/LXDE/autostart` and add the following line at the end of the file:
+    * Use `vim` to edit the file `~/.config/lxsession/LXDE/autostart` and add the following line at the end of the file:
         - `@/full/path/to/rotate.sh` - replacing `/full/path/to` with the appropriate path
-    * Reboot the machine to test the changes work.  If the orientation is changed, try inserting `sleep 3` before the `xrandr` command in `rotate.sh`.  
+    * Reboot the machine to test the changes work.  If the orientation is still not fixed, try inserting `sleep 3` before the `xrandr` command in `rotate.sh`.  
 <br/>
 
-
-11. Open a terminal window and install git:
-```
-sudo apt install -y git
-```
-
-12. Clone the kiosk setup repo:
-```
-git clone https://github.com/khsoh/kiosk-linux.git kiosk
-```
-
-13. Change directory to the repo:
-```
-cd kiosk
-```
-
-14. Source the bootstrap.sh script to install more tools:
-```
-source bootstrap.sh
-```
-
-15. Source the setup_kiosk.sh script to setup the startup environment to run firefox
-```
-source setup_kiosk.sh
-```
+5. If the touchscreen orientation needs to be corrected, do the following steps:
+    * Identify the touchscreen device by executing `xinput --list`.  Note the device name string.
+    * Use `vim` to edit the `rotate.sh` file that was created in the previous step.
+    * Add the following line at the end of the file:
+        - `xinput set-prop "Your touchsreen device name" --type-float "Coordinate Transformation Matrix" <orientation>`
+    * The `<orientation>` should be one of the following:
+        - `0 -1 1 1 0 0 0 0 1`  : 90 degrees clockwise rotation
+        - `-1 0 1 0 -1 1 0 0 1` : 180 degrees rotation
+        - `0 1 0 -1 0 1 0 0 1`  : 90 degrees counter-clockwise rotation
 
