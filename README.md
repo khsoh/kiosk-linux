@@ -103,7 +103,7 @@ It is possible that the display may not be in the correct orientation for your h
     * Identify the touchscreen device by executing `xinput --list`.  Note the device name string.
     * Use `vim` to edit the `rotate.sh` file that was created in the previous step.
     * Add the following line at the end of the file:
-        - `xinput set-prop "Your touchsreen device name" --type-float "Coordinate Transformation Matrix" <orientation>`
+        - `xinput set-prop "Your touchsreen device name" --type=float "Coordinate Transformation Matrix" <orientation>`
     * The `<orientation>` should be one of the following:
         - `0 -1 1 1 0 0 0 0 1`  : 90 degrees clockwise rotation
         - `-1 0 1 0 -1 1 0 0 1` : 180 degrees rotation
