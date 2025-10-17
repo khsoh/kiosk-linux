@@ -67,6 +67,38 @@ source bootstrap.sh
 source setup_kiosk.sh
 ```
 
+### Non-automated installation
+
+In non-automated installations like wattOS, the user is boot into a Live USB Linux GUI.  Perform the following steps to get installation going properly:
+
+1. Press the keyboard shorcut <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> to open a terminal window.
+
+2. If you have display orientation issues, run one of the following `xrandr` command to change the orientation of the display:
+
+```
+    xrandr -o right
+    xrandr -o left
+    xrandr -o inverted
+```
+
+3. Run `nmcli device wifi list` to list wifi devices.  Find the device that you can connect to the internet
+
+4. Run `nmcli device wifi connect <SSID> --ask` to connect to the wifi network.  You will be prompted for the password.  This should connect you to the internet.
+
+5. If you have display orientation issues, continue with the following steps, otherwise, skip to step 7.
+
+6. Run `sudo apt install -y xinput` to install `xinput` so that you can change the orientation of your touchscreen
+    * Run `xinput --list` to find the touchscreen device.
+    * Then run the following command to setup the correct orientation
+        - `xinput set-prop "Your touchsreen device name" --type=float "Coordinate Transformation Matrix" <orientation>`
+    * The `<orientation>` should be one of the following:
+        - `0 -1 1 1 0 0 0 0 1`  : 90 degrees clockwise rotation
+        - `-1 0 1 0 -1 1 0 0 1` : 180 degrees rotation
+        - `0 1 0 -1 0 1 0 0 1`  : 90 degrees counter-clockwise rotation
+
+7. Double-click (or double-tap) the install icon on the desktop to install the OS.
+
+
 ### Display and/or touchscreen orientation issues
 
 It is possible that the display may not be in the correct orientation for your hardware.  The following are instructions for fixing this issue in wattOS or Debian-based distributions:
