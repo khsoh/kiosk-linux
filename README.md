@@ -4,7 +4,7 @@ Kiosk setup for Linux.
 This repository contains code to support the setting up of a Linux-based kiosk.  The
 following distributions are supported:
 
-- (Recommended) Release ISO image from this repository which is based on the wattOS image.
+- (Recommended) [Release ISO image](https://github.com/khsoh/kiosk-linux/releases/download/v1.0.0/zbavimg.iso) from this repository which is based on the wattOS image.
 - [wattOS](https://www.planetwatt.com) - Version R13
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
@@ -12,7 +12,7 @@ following distributions are supported:
 
 ## Setup
 1. Download **ONE** of the following ISO image:
-- Release ISO image from this repository
+- [Release ISO image](https://github.com/khsoh/kiosk-linux/releases/download/v1.0.0/zbavimg.iso) from this repository
 - [wattOS](https://www.planetwatt.com)
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
