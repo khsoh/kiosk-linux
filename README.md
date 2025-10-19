@@ -4,17 +4,16 @@ Kiosk setup for Linux.
 This repository contains code to support the setting up of a Linux-based kiosk.  The
 following distributions are supported:
 
-- (Recommended) [wattOS](https://www.planetwatt.com) - Version R13
+- (Recommended) Release ISO image from this repository which is based on the wattOS image.
+- [wattOS](https://www.planetwatt.com) - Version R13
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
 - [peppermintOS](https://peppermintos.com)
 
-Note that [Xubuntu](https://xubuntu.org) is probably the lightest Ubuntu flavour that you can use for
-a kiosk application.
-
 ## Setup
 1. Download **ONE** of the following ISO image:
-- (Recommended) [wattOS](https://www.planetwatt.com)
+- Release ISO image from this repository
+- [wattOS](https://www.planetwatt.com)
 - [Ubuntu desktop](https://ubuntu.com/download/desktop/thank-you?version=22.04.4&architecture=amd64)
 - [Ubuntu-flavoured distribution](https://ubuntu.com/desktop/flavours)
 - [peppermintOS](https://peppermintos.com)
@@ -23,9 +22,10 @@ a kiosk application.
 [instructions](https://help.ubuntu.com/community/Installation/FromUSBStick).
 
 3. Plug in the USB stick into your mini-PC and boot from it to install the Linux distribution
-Most of the the choices are fairly straight-forward.
+Most of the the choices are fairly straight-forward.  You might have to select the correct orientation
+from the multiple boot choices.
 
-4. During the setup should make user auto-login
+4. During the setup, select option to make user auto-login
 
 5. After setup has completed, reboot to autologin into graphical environment
 
@@ -69,6 +69,8 @@ source setup_kiosk.sh
 
 ### Non-automated installation
 
+If you use the release ISO image, you most likely will not need the following instructions to fix the display orientation because this has been automated in the release ISO image.  So you can skip this section if everything boots up in the correct orientation.
+
 In non-automated installations like wattOS, the user is boot into a Live USB Linux GUI.  Perform the following steps to get installation going properly:
 
 1. Press the keyboard shorcut <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> to open a terminal window.
@@ -100,6 +102,8 @@ In non-automated installations like wattOS, the user is boot into a Live USB Lin
 
 
 ### Display and/or touchscreen orientation issues
+
+If you use the release ISO image, you most likely will not need the following instructions to fix the display orientation because this has been automated in the release ISO image.  So you can skip this section if everything boots up in the correct orientation.
 
 It is possible that the display may not be in the correct orientation for your hardware.  The following are instructions for fixing this issue in wattOS or Debian-based distributions:
 
