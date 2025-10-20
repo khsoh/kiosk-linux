@@ -3,7 +3,12 @@
 SCRIPTNAME=$(readlink -f ${BASH_SOURCE[0]})
 pushd "$(dirname $SCRIPTNAME)" > /dev/null
 
-read -p "Kiosk URL: " KIOSKURL
+DEFAULT_KIOSKURL=https://studio.youtube.com/channel/@ZionBishan/livestreaming/manage
+read -p "Kiosk URL (press ENTER for default): " KIOSKURL
+
+if [ -z "$KIOSKURL" ]; then
+    KIOSKURL="$DEFAULT_KIOSKURL"
+fi
 
 cat << __kiosk_desktop > $XDG_CONFIG_HOME/autostart/kiosk.desktop
 [Desktop Entry]
