@@ -2,6 +2,10 @@
 
 # Skip if running live
 if cat /proc/cmdline | grep "/live" ; then
+    ROTATE=$(cat /proc/cmdline|/bin/sed -r -n -e 's/.*\s(fbcon=rotate:.).*/\1/p')
+    if [ ! -z "$ROTATE" ]; then
+        sudo echo "GRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT $ROTATE\"" > /etc/default/grub.d/rotate.cfg
+    fi
 	exit
 fi
 
