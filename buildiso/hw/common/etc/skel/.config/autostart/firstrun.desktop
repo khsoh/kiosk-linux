@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=First Startup
+Exec=lxterminal --command "$HOME/.config/autostart/firstrun.sh"
+Comment=First run
+Hidden=false
+NoDisplay=false
+
