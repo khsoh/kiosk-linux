@@ -11,7 +11,7 @@ pushd $2
 FN="./live/filesystem.squashfs"
 NEW_HASH=$(sha256sum \$FN | awk '{print $1}')
 
-# Replace the checksum for $FN in sha256sum.txt
+# Replace the checksum for \$FN in sha256sum.txt
 sed -i "s|^[a-f0-9]\{64\}  *\$FN|\$NEW_HASH  \$FN|" "sha256sum.txt"
 popd
 
