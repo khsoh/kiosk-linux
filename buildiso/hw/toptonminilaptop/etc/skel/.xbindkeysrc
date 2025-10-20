@@ -1,3 +1,4 @@
+## The following are required to generate mouse clicks on Pocket PC
 "xdotool click 1"
     KP_Begin
 
