@@ -9,11 +9,17 @@ if cat /proc/cmdline | grep "/live" ; then
 	exit
 fi
 
+if [ ! -e "~/firstrun" ]; then
+	# Set power button to power off
+	xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action -s 4
+
+    # Initialize firstrun file
+    cp /dev/null ~/firstrun
+fi
+
 echo Checking for Internet connection...
 
 if ! /usr/bin/nm-online --timeout=20 ; then
-	# Set power button to power off
-	xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action -s 4
 
 	echo WiFi APs:
 	nmcli -f SSID device wifi list | tail -n +2 | grep -v "^\-\-" | sort | uniq
