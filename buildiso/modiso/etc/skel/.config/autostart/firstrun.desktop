@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=First Startup
+Exec=bash -c "nohup ~/.config/autostart/scripts/firstrun.sh > /dev/null 2>&1 &"
+Comment=First run
+Terminal=false
+Hidden=false
+NoDisplay=true
+
