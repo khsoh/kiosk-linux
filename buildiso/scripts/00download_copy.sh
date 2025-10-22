@@ -26,7 +26,7 @@ fi
 wget $1
 
 echo Mounting ISO image to /media
-sudo mount -t loop $1 /media
+sudo mount -o loop $1 /media
 
 echo Copying the ISO contents to $2
 sudo cp -a /media $2
