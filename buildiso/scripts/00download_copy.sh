@@ -31,6 +31,8 @@ sudo mount -o loop $1 /media
 echo Copying the ISO contents to $2
 sudo cp -a /media $2
 
+sudo umount /media
+
 echo Unsquashing filesystem
 sudo unsquashfs $2/live/filesystem.squashfs
 
