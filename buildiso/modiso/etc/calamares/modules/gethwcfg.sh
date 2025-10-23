@@ -16,5 +16,5 @@ if [[ -f /etc/default/hwsetup ]]; then
     fi
 fi
 
-rsync -rlp --exclude "README.md" /etc/hwspecific/$HWSEL/ $TARGET/etc/skel
+rsync -rlp --exclude "README.md" /etc/hwspecific/$HWSEL/ $TARGET
 
