@@ -24,9 +24,9 @@ fi
 #   you may use: https://extantpc.com/iso/wattOS-R13.iso
 
 FN=$(basename $1)
-if [ "$1" =~ ^(https?|ftp):// ]; then
+if [[ "$1" =~ ^(https?|ftp):// ]]; then
     wget "$1"
-elif [ "$1" =~ ^file:// ]; then
+elif [[ "$1" =~ ^file:// ]]; then
     furl="$1"
     FN="${furl#file://}"
 fi
