@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This code performs the following:
-# - Download ISO image from URL
+# - Download ISO image from URL (if given a web url)
 # - Mount the ISO image
 # - Copies the contents of ISO to a directory
 # - Unsquashes the filesystem in live/filesystem.squashfs 
@@ -11,7 +11,7 @@ SCRIPTDIR=$(dirname "$SCRIPTNAME")
 
 if test $# -ne 2; then
     echo "Usage:"
-    echo "  $0 <URL of ISO image> <new folder to copy ISO contents>"
+    echo "  $0 <URL of ISO image or filename> <new folder to copy ISO contents>"
     exit 1
 fi
 
@@ -23,10 +23,16 @@ fi
 # For wattOS-R13 ISO
 #   you may use: https://extantpc.com/iso/wattOS-R13.iso
 
-wget $1
+FN=$(basename $1)
+if [ "$1" =~ ^(https?|ftp):// ]; then
+    wget "$1"
+elif [ "$1" =~ ^file:// ]; then
+    furl="$1"
+    FN="${furl#file://}"
+fi
 
 echo Mounting ISO image to /media
-sudo mount -o loop $(basename $1) /media
+sudo mount -o loop "$FN" /media
 
 echo Copying the ISO contents to $2
 sudo cp -a /media $2
