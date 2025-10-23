@@ -7,10 +7,6 @@ if [[ ! -d "$TARGET" ]]; then
     exit 1
 fi
 
-if [[ ! -d "$TARGET/tmp/hwspecific" ]]; then
-    mkdir "$TARGET/tmp/hwspecific"
-fi
-
 # Assume others selection
 HWSEL="others"
 if [[ -f /etc/default/hwsetup ]]; then
@@ -20,5 +16,5 @@ if [[ -f /etc/default/hwsetup ]]; then
     fi
 fi
 
-rsync -rlp --exclude "README.md" /etc/hwspecific/$HWSEL/ $TARGET/tmp/hwspecific
+rsync -rlp --exclude "README.md" /etc/hwspecific/$HWSEL/ $TARGET/etc/skel
 
