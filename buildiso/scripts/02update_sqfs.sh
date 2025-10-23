@@ -27,8 +27,8 @@ if [ ! -d squashfs-root ]; then
 fi
 
 chroot squashfs-root /bin/bash -c "
+apt update -y
 # Skip the update and upgrade because it takes a long time
-# apt update -y
 # apt upgrade -y
 
 apt install -y git xinput xdotool xbindkeys
