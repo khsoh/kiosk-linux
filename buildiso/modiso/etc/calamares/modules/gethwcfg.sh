@@ -1,7 +1,6 @@
 #!/bin/bash
 
 TARGET="$1"
-echo chroot is "$TARGET" >> /tmp/XXX
 
 # This script is only run during calamares setup
 if [[ ! -d "$TARGET" ]]; then
