@@ -33,8 +33,11 @@ while [ "$HWSEL" == "" ]; do
     fi
 done
 
+
+HWSEL="${HWSEL%/}"
+
 # Save this to hwsetup file
-sudo echo $HWSEL > /etc/default/hwsetup
+sudo bash -c "echo \"$HWSEL\" > /etc/default/hwsetup"
 
 rsync -rlp /etc/hwspecific/$HWSEL/etc/skel/ --exclude "README.md" ~
 
