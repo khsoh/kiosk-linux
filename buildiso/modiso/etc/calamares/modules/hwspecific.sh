@@ -1,5 +1,5 @@
 #!/bin/bash
 
-if [[ -d /run/calamares/hwspecific ]]; then
-    rsync -rlp --exclude "README.md" /run/calamares/hwspecific/ /etc/skel
+if [[ -d /tmp/hwspecific ]]; then
+    rsync -rlp --exclude "README.md" /tmp/hwspecific/ /etc/skel
 fi

@@ -1,8 +1,15 @@
 #!/bin/bash
 
+TARGET="$1"
+echo chroot is "$TARGET" >> /tmp/XXX
+
 # This script is only run during calamares setup
-if [[ ! -d /run/calamares ]]; then
+if [[ ! -d "$TARGET" ]]; then
     exit 1
+fi
+
+if [[ ! -d "$TARGET/tmp/hwspecific" ]]; then
+    mkdir "$TARGET/tmp/hwspecific"
 fi
 
 # Assume others selection
@@ -14,5 +21,5 @@ if [[ -f /etc/default/hwsetup ]]; then
     fi
 fi
 
-sudo rsync -rlp --exclude "README.md" /etc/hwspecific/$HWSEL/ /run/calamares/hwspecific
+rsync -rlp --exclude "README.md" /etc/hwspecific/$HWSEL/ $TARGET/tmp/hwspecific
 
