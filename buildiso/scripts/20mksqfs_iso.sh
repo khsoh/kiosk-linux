@@ -34,6 +34,11 @@ if [ ! -d "$ISOPATH/live" ]; then
     exit 1
 fi
 
+# Remove ISO file
+if [ -e $2 ]; then
+    rm -f $2
+fi
+
 mksquashfs squashfs-root filesystem.squashfs -comp xz -b 1M
 
 mv -f filesystem.squashfs $ISOPATH/live
