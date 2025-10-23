@@ -3,7 +3,7 @@
 SCRIPTNAME=$(readlink -f "$0")
 SCRIPTDIR=$(dirname "$SCRIPTNAME")
 
-if ! /usr/bin/nm-online --timeout=20 ; then
+if ! /usr/bin/nm-online --timeout=1 ; then
     echo ==== NO INTERNET CONNECTION ====
     echo Setting up WiFi
     echo ""
