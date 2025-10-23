@@ -2,4 +2,4 @@
 @pcmanfm --desktop --profile LXDE
 @xscreensaver -no-splash
 @/etc/xdg/lxsession/LXDE/rotate.sh
-@xbindkeys
+@xbindkeys -p

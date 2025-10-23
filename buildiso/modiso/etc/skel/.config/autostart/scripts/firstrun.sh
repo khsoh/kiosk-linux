@@ -6,6 +6,9 @@ SCRIPTDIR=$(dirname "$SCRIPTNAME")
 if cat /proc/cmdline | grep "/live" ; then
     # Set power button to power off and then skip rest of code if running live
     xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action -s 4
+    if [ ! -e /etc/default/hwsetup ]; then
+        lxterminal --command "$SCRIPTDIR/hwsetup.sh"
+    fi
     exit
 fi
 
