@@ -34,7 +34,7 @@ while [ "$HWSEL" == "" ]; do
 done
 
 # Save this to hwsetup file
-echo $HWSEL > /etc/default/hwsetup
+sudo echo $HWSEL > /etc/default/hwsetup
 
 rsync -rlp /etc/hwspecific/$HWSEL/etc/skel/ --exclude "README.md" ~
 
