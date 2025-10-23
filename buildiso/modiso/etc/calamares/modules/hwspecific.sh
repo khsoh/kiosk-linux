@@ -1,11 +1,5 @@
 #!/bin/bash
 
-echo HW specific setup - temporary for testing
-
-read -n 1 -s -p "Enter a key: " XX
-
-echo read $XX
-
-sleep 4
-
-
+if [[ -d /run/calamares/hwspecific ]]; then
+    rsync -rlp --exclude "README.md" /run/calamares/hwspecific/ /etc/skel
+fi
