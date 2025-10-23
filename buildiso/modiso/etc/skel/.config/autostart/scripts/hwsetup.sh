@@ -36,7 +36,7 @@ done
 # Save this to hwsetup file
 echo $HWSEL > /etc/default/hwsetup
 
-rsync -rlp /etc/hwspecific/$HWSEL --exclude "README.md" ~
+rsync -rlp /etc/hwspecific/$HWSEL/etc/skel/ --exclude "README.md" ~
 
 ## We do not need the following because .xbindkeysrc is non-empty always
 ##killall -HUP xbindkeys > /dev/null 2>&1
