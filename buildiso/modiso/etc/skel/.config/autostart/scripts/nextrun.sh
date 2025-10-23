@@ -21,7 +21,14 @@ fi
 if [ ! -d ~/kiosk ]; then
     echo ==== Kiosk not yet setup ====
     echo Setting up kiosk by cloning from git repo
+    echo This will take a while
     echo ...
+
+    read -s -n 1 -p "Press any key to continue..." XX
+
+    echo ""
+    echo ""
+    echo ""
 
 	git clone https://github.com/khsoh/kiosk-linux.git ~/kiosk
 	pushd ~/kiosk
