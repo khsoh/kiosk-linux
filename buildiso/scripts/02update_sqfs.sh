@@ -26,7 +26,10 @@ if [ ! -d squashfs-root ]; then
     exit 1
 fi
 
+sudo mount -t devpts devpts squashfs-root/dev/pts
 chroot squashfs-root /bin/bash -c "
+mount -t proc none /proc
+mount -t sysfs none /sys
 apt update -y
 # Skip the update and upgrade because it takes a long time
 # apt upgrade -y
@@ -34,5 +37,8 @@ apt update -y
 apt install -y git xinput xdotool xbindkeys
 apt autoremove
 apt clean
+umount /proc
+umount /sys
 "
+sudo umount squashfs-root/dev/pts
 
