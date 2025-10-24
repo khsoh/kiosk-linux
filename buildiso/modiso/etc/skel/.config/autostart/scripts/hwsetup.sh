@@ -18,12 +18,17 @@ shopt -u nullglob
 
 HWSEL=""
 
-while [ "$HWSEL" == "" ]; do
+# Number of items ${#dirs[@]}
+while [[ "$HWSEL" == "" ]]; do
     echo "Select your hardware by typing the number:"
     for index in "${!dirs[@]}"; do
         echo "[${index}] - ${dirs[$index]}"
     done
-    read -s -p "Type number then press <ENTER>: " HWIDX
+    if [[ ${#dirs[@]} -le 9 ]]; then
+        read -s -n 1 -p "Type number: " HWIDX
+    else
+        read -s -p "Type number then press <ENTER>: " HWIDX
+    fi
     if [[ $HWIDX =~ ^[0-9]+$ && "$HWIDX" -ge "0" && "$HWIDX" -lt "${#dirs[@]}" ]]; then
         HWSEL=${dirs[$HWIDX]}
     else
