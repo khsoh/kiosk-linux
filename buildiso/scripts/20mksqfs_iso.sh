@@ -12,9 +12,26 @@ if [ ! "$EUID" = "0" ]; then
     exit 1
 fi
 
+skip_mksqfs=0
+while getopts "x" option; do
+    case $option in
+        x)
+            skip_mksqfs=1
+            ;;
+        \?)
+            echo "Error: Invalid option -$OPTARG" >&2
+            exit 1
+            ;;
+    esac
+done
+
+# Process arguments after get the options
+shift $((OPTIND - 1))
+
 if test $# -ne 2; then
     echo "Usage:"
-    echo "  $0 <ISO contents folder> <ISO image filename>"
+    echo "  $0 [-x] <ISO contents folder> <ISO image filename>"
+    echo "    -x: Will skip updating the filesystem.squashfs in the ISO contents folder"
     exit 1
 fi
 
@@ -39,10 +56,10 @@ if [ -e $2 ]; then
     rm -f $2
 fi
 
-mksquashfs squashfs-root filesystem.squashfs -comp xz -b 1M
-
-mv -f filesystem.squashfs $ISOPATH/live
-
+if [[ "$skip_mksqfs" -eq 0 ]]; then
+    mksquashfs squashfs-root filesystem.squashfs -comp xz -b 1M
+    mv -f filesystem.squashfs $ISOPATH/live
+fi
 
 pushd $ISOPATH
 grep -Ff <(awk '{print $2}' ./sha256sum.txt) <(find . -type f -print0 | sort -z | xargs -r0 sha256sum) >shx.txt
