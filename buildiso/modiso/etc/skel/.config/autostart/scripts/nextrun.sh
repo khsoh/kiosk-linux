@@ -35,4 +35,7 @@ if [ ! -d ~/kiosk ]; then
 	source ./bootstrap.sh
 	source ./setup_kiosk.sh
 	popd
+
+    read -s -n 1 -p "Press any key to reboot..." YY
+    sudo shutdown -r now
 fi
