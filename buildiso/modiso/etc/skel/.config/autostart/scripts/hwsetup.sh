@@ -46,7 +46,9 @@ sudo bash -c "echo \"$HWSEL\" > /etc/default/hwsetup"
 
 rsync -rlp /etc/hwspecific/$HWSEL/etc/skel/ --exclude "README.md" ~
 
-## We do not need the following because .xbindkeysrc is non-empty always
-##killall -HUP xbindkeys > /dev/null 2>&1
-##pgrep xbindkeys >/dev/null || xbindkeys -p
+## Signal to xbindkeys to re-read the configuration file
+killall -HUP xbindkeys > /dev/null 2>&1
+
+## Restart xbindkeys if it is absent
+pgrep xbindkeys >/dev/null || xbindkeys
 
