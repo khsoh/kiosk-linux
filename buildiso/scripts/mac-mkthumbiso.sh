@@ -1,6 +1,14 @@
 #!/bin/bash
 
-if diskutil list $2 | head -1 | grep external > /dev/null ; then
+if test $# -ne 2; then
+    echo "Usage:"
+    echo "  $0 <ISO image file> <device disk of thumbdrive>"
+    echo "Example:"
+    echo "  $0 zb.iso /dev/disk4"
+    exit 1
+fi
+
+if [[ "$(diskutil list external $2)" != "" ]]; then
     BDISK="${2/rdisk/disk}"
     RDISK="${BDISK/disk/rdisk}"
     # Unmount the buffered disk first
