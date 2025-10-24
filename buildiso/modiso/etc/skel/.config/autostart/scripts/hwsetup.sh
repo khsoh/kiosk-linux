@@ -50,5 +50,5 @@ rsync -rlp /etc/hwspecific/$HWSEL/etc/skel/ --exclude "README.md" ~
 killall -HUP xbindkeys > /dev/null 2>&1
 
 ## Restart xbindkeys if it is absent
-pgrep xbindkeys >/dev/null || xbindkeys
+pgrep xbindkeys >/dev/null || xbindkeys -p
 
